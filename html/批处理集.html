@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset=UTF-8>
+	<meta name="robots" content="noindex, nofollow">
+    <title>批处理集</title>
+    <link rel="stylesheet" href="../css/layout.css" type="text/css" />
+</head>
+<body>
+<div id="cr">
+<span id="edit_date"></span>
+
+<h2>删下载重复</h2>
+<div class="microlight">cd C:\Users\大醉虾\Downloads
+del *^(1^).mp4
+del *^(2^).mp4
+del *^(3^).mp4
+pause
+</div>
+
+<h2>启动最小化</h2>
+<div class="microlight">@echo off
+if "%1"=="h" goto begin
+start mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.close)&&exit
+:begin
+</div>
+
+<h2>复制资料夹1中的内容到资料夹2，如果资料夹2不存在则自动创建</h2>
+
+<code>xcopy E:\folder1 E:\folder2 /s /e /i /y</code><br>
+
+<h2>复制文件到资料夹2，如果有同名文件自动覆盖</h2>
+
+<code>copy E:\folder1\filename E:\folder2\ /y</code><br>
+
+<h2>删除文件</h2>
+
+<code>del /f /s /q E:\folder\filename</code><br>
+
+<h2>删除资料夹</h2>
+
+<code>rd /s /q E:\folder\all_files</code><br>
+
+<h2>改后缀</h2>
+
+<code>ren *.png *.jpg</code><br>
+
+<h2>列出资料夹内的文件名</h2>
+
+<code>DIR *.* /B >LIST.TXT</code><br>
+
+
+<script src="../js/common.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

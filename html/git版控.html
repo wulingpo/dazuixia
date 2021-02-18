@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset=UTF-8>
+	<meta name="robots" content="noindex, nofollow">
+    <title>git版控</title>
+    <link rel="stylesheet" href="../css/layout.css" type="text/css" />
+</head>
+<body>
+<div id="cr">
+<span id="edit_date"></span>
+<h2>安装</h2>
+<div class="microlight">
+配置用户名
+git config --global user.name "youname"
+
+配置邮箱
+git config --global user.email "youremail@email.com"
+
+查看已配置的用户名和邮箱信息
+git config -l
+
+生成SSH key
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+-t，设置密钥类型，默认是rsa，可以省略；
+-b，设置指定要创建的密钥中的位数，即密钥长度，对于RSA密钥，最小为768位，默认是2048位，Github建议设置为4096位；
+-C，设置注释文字，比如邮箱；
+</div>
+
+
+<h2>删除全部commits</h2>
+<div class="microlight">
+git checkout --orphan latest_branch
+
+git add -A
+
+git commit -am "commit message"
+
+git branch -D master
+
+git branch -m master
+
+git push -f origin master
+
+</div>
+
+
+<h2>https和ssh</h2>
+<div class="microlight">
+利用Git向Github克隆（clone）或者提交（push）代码时，大概有两种方式：HTTPS和ssh key。我们都可以使用这两种方法直接克隆（clone）项目
+git clone https://github.com/xx/xxx.git
+git clone git@github.com:xx/xxx.git
+
+但是在提交（push）的时候：
+HTTPS方法需要该项目的账号、邮箱和密码授权，在多人协作开发的时候，可能不太方便；
+ssh key只需要配置一次，不需要每次都输入账户、邮箱和密码，提交（push）代码时显然更加省时省力；
+
+HTTPS方式克隆的项目如果要改为ssh key免密：
+git remote set-url origin git@github.com:xx/xxx.git
+</div>
+<script src="../js/common.js" type="text/javascript"></script>
+</div>
+</body>
+</html>
